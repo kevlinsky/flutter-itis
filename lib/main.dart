@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_itis/first_task.dart';
+import 'package:flutter_itis/second_task.dart';
 
 void main() {
   runApp(const MyApp());
@@ -49,13 +50,20 @@ class ListTitle {
 class _MyHomePageState extends State<MyHomePage> {
   List<ListTitle> _homeworks = [
     ListTitle(title: 'First Homework', widget: FirstTask(title: 'First Homework')),
+    ListTitle(title: 'Second Homework', widget: SecondTask(title: 'Second Homework')),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        backgroundColor: Colors.lightGreen,
+        centerTitle: true,
+        title: Text(
+          widget.title,
+          style: TextStyle(
+              fontSize: 25, color: Colors.white, fontWeight: FontWeight.bold),
+        ),
       ),
       body: SafeArea(
           child: Center(
