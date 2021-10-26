@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:mobx/mobx.dart';
-import 'message.dart';
+import '../models/message.dart';
 
 part 'message_store.g.dart';
 
