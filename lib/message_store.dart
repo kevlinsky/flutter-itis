@@ -23,6 +23,9 @@ abstract class _MessageStore with Store{
 
   @action
   void addMessage(Message message){
-    this.messages.add(message);
+    this.client.addMessage(message).then((value) => getMessages());
   }
+
+  @computed
+  ObservableList<Message> get reverse => ObservableList.of(this.messages.reversed);
 }

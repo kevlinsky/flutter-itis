@@ -21,8 +21,6 @@ class _SecondTaskState extends State<SecondTask> {
   TextEditingController _textEditingController = TextEditingController();
   FocusNode _textFocusNode = FocusNode();
 
-  ScrollController _scrollController = new ScrollController();
-
   MessageStore _messageStore = MessageStore();
 
   @override
@@ -34,7 +32,7 @@ class _SecondTaskState extends State<SecondTask> {
   Observer _buildMessages(BuildContext context) {
     return Observer(builder: (context) {
       return ListView.builder(
-        controller: _scrollController,
+        reverse: true,
         itemCount: _messageStore.messages.length,
         padding: EdgeInsets.all(8),
         itemBuilder: (context, index) {
@@ -42,10 +40,10 @@ class _SecondTaskState extends State<SecondTask> {
             elevation: 4,
             child: ListTile(
               title: Text(
-                _messageStore.messages[index].author,
+                _messageStore.reverse[index].author,
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
-              subtitle: Text(_messageStore.messages[index].message),
+              subtitle: Text(_messageStore.reverse[index].message),
             ),
           );
         },
@@ -56,7 +54,6 @@ class _SecondTaskState extends State<SecondTask> {
 
   void _sendMessage(String text) {
     Message message = Message(author: 'Artyom Elin', message: text);
-    restClient.addMessage(message);
     _messageStore.addMessage(message);
     _textEditingController.clear();
   }
@@ -97,9 +94,6 @@ class _SecondTaskState extends State<SecondTask> {
                           onTap: () {
                             if (_textEditingController.text != '') {
                               _sendMessage(_textEditingController.text);
-                              _scrollController.animateTo(_scrollController
-                                  .position.maxScrollExtent, duration: Duration(
-                                  milliseconds: 300), curve: Curves.easeOut);
                             }
                           },
                         )
