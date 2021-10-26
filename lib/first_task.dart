@@ -13,19 +13,27 @@ class _FirstTaskState extends State<FirstTask> {
   List<String> _messages = [];
 
   TextEditingController _textEditingController = TextEditingController();
+  FocusNode _textFocusNode = FocusNode();
 
   void _addMessage(String text) {
     setState(() {
       _messages.add(text);
     });
     _textEditingController.clear();
+    FocusScope.of(context).requestFocus(_textFocusNode);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        backgroundColor: Colors.lightGreen,
+        centerTitle: true,
+        title: Text(
+          widget.title,
+          style: TextStyle(
+              fontSize: 25, color: Colors.white, fontWeight: FontWeight.bold),
+        ),
       ),
       body: SafeArea(
         child: Center(
@@ -53,6 +61,7 @@ class _FirstTaskState extends State<FirstTask> {
                         controller: _textEditingController,
                         onSubmitted: _addMessage,
                         autofocus: true,
+                        focusNode: _textFocusNode,
                       ),
                     ),
                     GestureDetector(
