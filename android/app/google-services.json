@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "13928613645",
+    "project_id": "flutter-itis",
+    "storage_bucket": "flutter-itis.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:13928613645:android:a5f697eee90a0f73d4d244",
+        "android_client_info": {
+          "package_name": "ru.kpfu.itis.flutter_itis"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "13928613645-ma37fuku97u4gt5hg4ig5rjup905da50.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAAVz_WNmwfW-XwZxw-M0fwoS5C2FBrcYg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "13928613645-ma37fuku97u4gt5hg4ig5rjup905da50.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

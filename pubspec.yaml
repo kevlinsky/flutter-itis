@@ -35,6 +35,10 @@ dependencies:
   json_annotation: ^4.1.0
   flutter_mobx: ^2.0.2
   mobx: ^2.0.0
+  flutter_modular: 4.1.1
+  styled_widget: 0.4.0+3
+  firebase_core: "^1.7.0"
+  firebase_messaging: "^10.0.0"
 
 dev_dependencies:
   flutter_test:

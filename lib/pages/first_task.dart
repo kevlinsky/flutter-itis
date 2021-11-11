@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:styled_widget/styled_widget.dart';
 
 class FirstTask extends StatefulWidget {
   const FirstTask({Key? key, required this.title}) : super(key: key);
@@ -29,31 +30,27 @@ class _FirstTaskState extends State<FirstTask> {
       appBar: AppBar(
         backgroundColor: Colors.lightGreen,
         centerTitle: true,
-        title: Text(
-          widget.title,
-          style: TextStyle(
-              fontSize: 25, color: Colors.white, fontWeight: FontWeight.bold),
-        ),
+        title: Text(widget.title)
+            .textColor(Colors.white)
+            .fontSize(25)
+            .fontWeight(FontWeight.bold),
       ),
       body: SafeArea(
-        child: Center(
-          child: Padding(
+          child: Center(
+        child: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
               children: [
                 Expanded(
-                 child: ListView(
-                   children: _messages.map((item) {
-                     return ListTile(
-                     title: Text(
-                       item,
-                       style: const TextStyle(
-                           color: Colors.deepPurple, fontSize: 16),
-                     )
-                     );
-                   }).toList(),
-                 )
-                ),
+                    child: ListView(
+                  children: _messages.map((item) {
+                    return ListTile(
+                        title: Text(item)
+                            .textAlignment(TextAlign.right)
+                            .textColor(Colors.deepPurple)
+                            .fontSize(16));
+                  }).toList(),
+                )),
                 Row(
                   children: [
                     Expanded(
@@ -65,7 +62,7 @@ class _FirstTaskState extends State<FirstTask> {
                       ),
                     ),
                     GestureDetector(
-                      child: Icon(Icons.add),
+                      child: Icon(Icons.send),
                       onTap: () {
                         _addMessage(_textEditingController.text);
                       },
@@ -73,11 +70,8 @@ class _FirstTaskState extends State<FirstTask> {
                   ],
                 ),
               ],
-            )
-          ),
-        )
-
-      ),
+            )),
+      )),
     );
   }
 }
