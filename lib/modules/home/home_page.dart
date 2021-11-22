@@ -20,8 +20,9 @@ class ListTitle {
 
 class _MyHomePageState extends State<MyHomePage> {
   List<ListTitle> _homeworks = [
-    ListTitle(title: 'Single chat', route: '/first-task'),
-    ListTitle(title: 'API chat', route: '/second-task'),
+    ListTitle(title: 'Single chat', route: '/first-task/'),
+    ListTitle(title: 'API chat', route: '/second-task/'),
+    ListTitle(title: 'Image gallery', route: '/third-task/')
   ];
 
   @override
