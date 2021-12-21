@@ -39,9 +39,13 @@ class _ThirdTaskState extends State<ThirdTask> {
                 children: [
                   Expanded(
                     child: ImageListView(),
-                    flex: 6,
+                    flex: 5,
                   ),
-                  Expanded(child: ImagePickerView())
+                  ImagePickerView()
+                  // Expanded(
+                  //   child: ImagePickerView(),
+                  //   flex: 1
+                  // )
                 ],
               )),
         )));
@@ -109,12 +113,11 @@ class _ImagePickerViewState extends State<ImagePickerView> {
     try {
       print(source);
       final XFile? file = await ImagePicker().pickImage(source: source);
-      setState(() {
-        _galleryImageStore.addImage(new GalleryImage(
-            id: uuid.v1(),
-            title: DateTime.now().toString(),
-            imageFile: File(file!.path)));
-      });
+      _galleryImageStore.addImage(new GalleryImage(
+          id: uuid.v1(),
+          title: DateTime.now().toString(),
+          imageFile: File(file!.path))
+      );
     } catch (e) {
       print(e);
     }
