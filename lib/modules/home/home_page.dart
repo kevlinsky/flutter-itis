@@ -22,7 +22,8 @@ class _MyHomePageState extends State<MyHomePage> {
   List<ListTitle> _homeworks = [
     ListTitle(title: 'Single chat', route: '/first-task/'),
     ListTitle(title: 'API chat', route: '/second-task/'),
-    ListTitle(title: 'Image gallery', route: '/third-task/')
+    ListTitle(title: 'Image gallery', route: '/third-task/'),
+    ListTitle(title: 'Instagram', route: '/instagram/')
   ];
 
   @override
@@ -60,7 +61,11 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                             onTap: () {
                               print(item.route);
-                              Modular.to.pushNamed(item.route, arguments: item.title);
+                              if (item.title == 'Instagram'){
+                                Modular.to.navigate(item.route);
+                              } else {
+                                Modular.to.pushNamed(item.route, arguments: item.title);
+                              }
                               // Navigator.of(context).push(MaterialPageRoute(
                               //     builder: (context) => item.widget));
                             },
